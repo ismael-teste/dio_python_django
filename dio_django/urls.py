@@ -19,5 +19,5 @@ from core.views import hello
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', hello),
+    path('<int:num1>/<int:num2>/', hello),
 ]
