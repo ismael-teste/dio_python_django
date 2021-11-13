@@ -1,6 +1,8 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
+from .models import Evento
 
 
-def hello(request, num1, num2):
-    soma = num1 + num2
-    return HttpResponse(f'<h1>Hello World!{soma} </h1>')
+def lista_eventos(request):
+    eventos = Evento.objects.all()
+    ctx = {"eventos": eventos}
+    return render(request, 'agenda.html', ctx)
